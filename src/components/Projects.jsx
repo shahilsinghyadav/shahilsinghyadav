@@ -1,21 +1,33 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { motion } from 'framer-motion';
 import SectionCard from './SectionCard';
+import { itemVariants, containerVariants } from '../animations';
+import { ThemeContext } from '../ThemeContext';
 import tradezImg from '../assets/tradez.png';
 import emotionImg from '../assets/emotion.jpg';
 
-const ProjectItem = ({ title, type, description, stack, image }) => (
-    <div style={{
-        marginBottom: '0', // Removed bottom margin as grid gap handles spacing
-        background: 'rgba(255,255,255,0.4)',
-        padding: '0', // Removing padding from container to allow image to flush
-        borderRadius: '16px',
-        border: '1px solid rgba(255,255,255,0.6)',
-        boxShadow: '0 4px 6px rgba(0,0,0,0.02)',
-        display: 'flex',
-        flexDirection: 'column',
-        height: '100%',
-        overflow: 'hidden' // Ensure image stays within border radius
-    }}>
+const ProjectItem = ({ title, type, description, stack, image }) => {
+    const { isDark } = useContext(ThemeContext);
+    
+    return (
+    <motion.div
+        variants={itemVariants}
+        style={{
+            marginBottom: '0',
+            background: isDark ? 'rgba(20,20,25,0.8)' : 'rgba(255,255,255,0.8)',
+            padding: '0',
+            borderRadius: '16px',
+            border: isDark ? '1px solid rgba(255,255,255,0.15)' : '1px solid rgba(0,0,0,0.1)',
+            boxShadow: isDark ? '0 4px 6px rgba(0,0,0,0.3)' : '0 4px 6px rgba(0,0,0,0.08)',
+            display: 'flex',
+            flexDirection: 'column',
+            height: '100%',
+            overflow: 'hidden',
+            cursor: 'pointer'
+        }}
+        whileHover={{ y: -8, boxShadow: isDark ? '0 20px 40px rgba(0,150,255,0.2)' : '0 20px 40px rgba(0,150,255,0.15)' }}
+        transition={{ duration: 0.3 }}
+    >
         {/* Placeholder for Project Image */}
         <div style={{
             height: '160px',
@@ -39,7 +51,7 @@ const ProjectItem = ({ title, type, description, stack, image }) => (
         <div style={{ padding: '25px', display: 'flex', flexDirection: 'column', flex: 1 }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '1rem', flexWrap: 'wrap', gap: '10px' }}>
                 <h3 style={{ fontSize: '1.2rem', fontWeight: 600, margin: 0, lineHeight: 1.3 }}>{title}</h3>
-                <span style={{ fontSize: '0.75rem', opacity: 0.7, border: '1px solid #ccc', padding: '3px 8px', borderRadius: '12px', whiteSpace: 'nowrap' }}>{type}</span>
+                <span style={{ fontSize: '0.75rem', opacity: 0.7, border: isDark ? '1px solid rgba(255,255,255,0.3)' : '1px solid rgba(0,0,0,0.2)', padding: '3px 8px', borderRadius: '12px', whiteSpace: 'nowrap', background: isDark ? 'rgba(255,255,255,0.05)' : 'rgba(0,0,0,0.03)' }}>{type}</span>
             </div>
             <ul style={{ paddingLeft: '1.2rem', opacity: 0.8, marginBottom: 'auto', lineHeight: 1.5, fontSize: '0.95rem' }}>
                 {description.map((point, i) => <li key={i} style={{ marginBottom: '5px' }}>{point}</li>)}
@@ -50,18 +62,24 @@ const ProjectItem = ({ title, type, description, stack, image }) => (
                 </p>
             </div>
         </div>
-    </div>
-);
+    </motion.div>
+    );
+};
 
 const Projects = () => {
     return (
         <SectionCard title="Personal Projects" id="projects">
-            <div style={{
-                display: 'grid',
-                gridTemplateColumns: 'repeat(3, 1fr)', // Force 3 columns as requested
-                gap: '2rem',
-                width: '100%'
-            }}>
+            <motion.div
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-50px" }}
+                variants={containerVariants}
+                style={{
+                    display: 'grid',
+                    gridTemplateColumns: 'repeat(3, 1fr)', // Force 3 columns as requested
+                    gap: '2rem',
+                    width: '100%'
+                }}>
                 {/* Dummy Project Sequence First */}
                 <ProjectItem
                     title="Project Name Placeholder"
@@ -104,7 +122,7 @@ const Projects = () => {
                     stack="Python, Numpy, Data Analysis, HTML, CSS, JS"
                     image={emotionImg}
                 />
-            </div>
+            </motion.div>
         </SectionCard>
     );
 };

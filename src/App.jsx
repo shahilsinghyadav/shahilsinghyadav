@@ -1,4 +1,5 @@
 import React from 'react';
+import { ThemeProvider } from './ThemeContext';
 import Navbar from './components/Navbar';
 import Header from './components/Header';
 import Education from './components/Education';
@@ -11,9 +12,10 @@ import Cursor from './components/Cursor';
 
 function App() {
     return (
-        <div className="main-container">
-            <Cursor />
-            <Navbar />
+        <ThemeProvider>
+            <div className="main-container">
+                <Cursor />
+                <Navbar />
 
             <Header />
 
@@ -33,7 +35,8 @@ function App() {
             }}>
                 <p>© 2026 Shahil Singh Yadav.</p>
             </footer>
-        </div>
+            </div>
+        </ThemeProvider>
     );
 }
 

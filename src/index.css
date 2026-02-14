@@ -1,10 +1,25 @@
 :root {
   --font-main: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-serif: 'Playfair Display', serif;
-  /* For headings if desired for that "classy" look */
 
+  --bg-color: #0a0a0a;
+  --bg-gradient: #0a0a0a;
+
+  --text-main: #ffffff;
+  --text-secondary: #b0b0b0;
+  --text-accent: #e0e0e0;
+
+  --glass-bg: rgba(255, 255, 255, 0.08);
+  --glass-border: rgba(255, 255, 255, 0.12);
+  --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+
+  --card-radius: 24px;
+}
+
+/* Light Mode */
+[data-theme="light"] {
   --bg-color: #f4f5f7;
-  --bg-gradient: linear-gradient(135deg, #ffffff 0%, #ffffff 100%);
+  --bg-gradient: #f4f5f7;
 
   --text-main: #1a1a1a;
   --text-secondary: #555555;
@@ -13,8 +28,6 @@
   --glass-bg: rgba(255, 255, 255, 0.65);
   --glass-border: rgba(255, 255, 255, 0.4);
   --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
-
-  --card-radius: 24px;
 }
 
 * {
@@ -31,6 +44,30 @@ body {
   color: var(--text-main);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  position: relative;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    linear-gradient(0deg, transparent 24%, rgba(255, 255, 255, 0.05) 25%, rgba(255, 255, 255, 0.05) 26%, transparent 27%, transparent 74%, rgba(255, 255, 255, 0.05) 75%, rgba(255, 255, 255, 0.05) 76%, transparent 77%, transparent),
+    linear-gradient(90deg, transparent 24%, rgba(255, 255, 255, 0.05) 25%, rgba(255, 255, 255, 0.05) 26%, transparent 27%, transparent 74%, rgba(255, 255, 255, 0.05) 75%, rgba(255, 255, 255, 0.05) 76%, transparent 77%, transparent);
+  background-size: 50px 50px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Light mode grid pattern */
+[data-theme="light"] body::before {
+  background-image: 
+    linear-gradient(0deg, transparent 24%, rgba(0, 0, 0, 0.03) 25%, rgba(0, 0, 0, 0.03) 26%, transparent 27%, transparent 74%, rgba(0, 0, 0, 0.03) 75%, rgba(0, 0, 0, 0.03) 76%, transparent 77%, transparent),
+    linear-gradient(90deg, transparent 24%, rgba(0, 0, 0, 0.03) 25%, rgba(0, 0, 0, 0.03) 26%, transparent 27%, transparent 74%, rgba(0, 0, 0, 0.03) 75%, rgba(0, 0, 0, 0.03) 76%, transparent 77%, transparent);
 }
 
 h1,
@@ -55,13 +92,18 @@ h6 {
 }
 
 .glass-nav {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 /* Layout Utilities */
+.main-container {
+  position: relative;
+  z-index: 1;
+}
+
 .container {
   max-width: 1200px;
   margin: 0 auto;
@@ -95,4 +137,49 @@ a {
 
 .animate-fade-up {
   animation: fadeIn 0.8s ease-out forwards;
+}
+
+/* Smooth Link Hover Effects */
+.hover-link {
+  position: relative;
+  transition: color 0.3s ease;
+  font-weight: 500;
+}
+
+.hover-link::after {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--text-main);
+  transition: width 0.3s ease;
+}
+
+.hover-link:hover::after {
+  width: 100%;
+}
+
+/* Scroll Animation Utilities */
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }

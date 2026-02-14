@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { containerVariants, itemVariants } from '../animations';
 
 const Header = () => {
     const text = "Shahil Singh Yadav";
@@ -66,54 +67,60 @@ const Header = () => {
             }}></div>
 
             <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, ease: "easeOut" }}
+                initial="hidden"
+                animate="visible"
+                variants={containerVariants}
             >
                 {/* Name with Typewriter Effect */}
-                <h1 style={{
-                    fontSize: '5rem',
-                    fontWeight: 800,
-                    color: 'var(--text-main)',
-                    marginBottom: '0.5rem',
-                    lineHeight: 1.1,
-                    letterSpacing: '-0.03em',
-                    minHeight: '1.1em' // Prevent layout shift
-                }}>
+                <motion.h1
+                    variants={itemVariants}
+                    style={{
+                        fontSize: '5rem',
+                        fontWeight: 800,
+                        color: 'var(--text-main)',
+                        marginBottom: '0.5rem',
+                        lineHeight: 1.1,
+                        letterSpacing: '-0.03em',
+                        minHeight: '1.1em' // Prevent layout shift
+                    }}>
                     {displayedText}
                     <span style={{
                         color: 'rgba(0, 150, 255, 1)',
                         animation: 'blink 1s step-end infinite',
                         marginLeft: '5px'
                     }}>|</span>
-                </h1>
+                </motion.h1>
 
                 {/* Subtitle / Role */}
-                <div style={{
-                    fontSize: '1.25rem',
-                    color: 'var(--text-secondary)',
-                    fontStyle: 'italic',
-                    fontFamily: 'var(--font-serif)',
-                    marginBottom: '3rem',
-                    opacity: 0.8
-                }}>
+                <motion.div
+                    variants={itemVariants}
+                    style={{
+                        fontSize: '1.25rem',
+                        color: 'var(--text-secondary)',
+                        fontStyle: 'italic',
+                        fontFamily: 'var(--font-serif)',
+                        marginBottom: '3rem',
+                        opacity: 0.8
+                    }}>
                     a software developer & analyst
-                </div>
+                </motion.div>
 
                 {/* Contact Strip */}
-                <div style={{
-                    display: 'flex',
-                    gap: '2rem',
-                    justifyContent: 'center',
-                    flexWrap: 'wrap',
-                    marginBottom: '2rem'
-                }}>
+                <motion.div
+                    variants={itemVariants}
+                    style={{
+                        display: 'flex',
+                        gap: '2rem',
+                        justifyContent: 'center',
+                        flexWrap: 'wrap',
+                        marginBottom: '2rem'
+                    }}>
                     <a href="mailto:yshahil0623@gmail.com" className="hover-link">yshahil0623@gmail.com</a>
                     <span style={{ opacity: 0.3 }}>|</span>
                     <a href="https://linkedin.com/in/shahilsinghyadav" target="_blank" rel="noreferrer" className="hover-link">LinkedIn</a>
                     <span style={{ opacity: 0.3 }}>|</span>
                     <a href="https://github.com/shahilsinghyadav" target="_blank" rel="noreferrer" className="hover-link">GitHub</a>
-                </div>
+                </motion.div>
 
             </motion.div>
 

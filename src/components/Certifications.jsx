@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import SectionCard from './SectionCard';
+import { ThemeContext } from '../ThemeContext';
 
 const Certifications = () => {
+    const { isDark } = useContext(ThemeContext);
+    
     return (
         <SectionCard title="Certifications" id="certifications">
             <ul style={{ listStyle: 'none', padding: 0 }}>
@@ -13,11 +16,13 @@ const Certifications = () => {
                 ].map((cert, i) => (
                     <li key={i} style={{
                         padding: '1.5rem',
-                        borderLeft: '3px solid var(--text-accent)',
+                        borderLeft: '3px solid rgba(0,150,255,0.8)',
                         marginBottom: '1rem',
-                        background: 'rgba(255,255,255,0.5)',
+                        background: isDark ? 'rgba(20,20,25,0.8)' : 'rgba(255,255,255,0.8)',
                         fontSize: '1.05rem',
-                        borderRadius: '0 8px 8px 0'
+                        borderRadius: '0 8px 8px 0',
+                        border: isDark ? '1px solid rgba(255,255,255,0.1)' : '1px solid rgba(0,0,0,0.1)',
+                        borderLeft: '3px solid rgba(0,150,255,0.8)'
                     }}>
                         {cert}
                     </li>
