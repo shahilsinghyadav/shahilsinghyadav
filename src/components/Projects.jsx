@@ -159,7 +159,7 @@ const Projects = () => {
                 variants={containerVariants}
                 style={{
                     display: 'grid',
-                    gridTemplateColumns: 'repeat(3, 1fr)', // Force 3 columns as requested
+                    gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
                     gap: '2rem',
                     width: '100%'
                 }}>

@@ -20,9 +20,9 @@ function App() {
             <Header />
 
             {/* Sections now need IDs passed to SectionCard for auto-scroll in Navbar */}
-            <Education />
             <Experience />
             <Projects />
+            <Education />
             <TechnicalSkills />
             <Certifications />
 

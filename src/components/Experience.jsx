@@ -15,16 +15,14 @@ const ExperienceItem = ({ company, role, period, location, details, metrics }) =
                 {role} <span style={{ opacity: 0.4 }}>|</span> {location}
             </p>
             
-            {/* Metrics Display */}
+            {/* Metrics Display: icons on top row, data on bottom row */}
             {metrics && (
-                <div style={{ display: 'flex', gap: '2rem', marginBottom: '1.5rem', flexWrap: 'wrap' }}>
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(100px, 1fr))', gap: '1rem', marginBottom: '1.25rem', alignItems: 'center', textAlign: 'center' }}>
                     {metrics.map((metric, i) => (
-                        <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                            <span style={{ fontSize: '1.3rem' }}>{metric.icon}</span>
-                            <div>
-                                <div style={{ fontSize: '0.9rem', opacity: 0.7 }}>{metric.label}</div>
-                                <div style={{ fontSize: '1.1rem', fontWeight: 600, color: 'rgba(0,150,255,0.9)' }}>{metric.value}</div>
-                            </div>
+                        <div key={i} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.35rem' }}>
+                            <div style={{ fontSize: '1.4rem', lineHeight: 1 }}>{metric.icon}</div>
+                            <div style={{ fontSize: '0.9rem', color: 'var(--text-secondary)', fontWeight: 600 }}>{metric.label}</div>
+                            <div style={{ fontSize: '1.05rem', fontWeight: 700, color: 'rgba(0,150,255,0.9)' }}>{metric.value}</div>
                         </div>
                     ))}
                 </div>

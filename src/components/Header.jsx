@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { ArrowUpRight } from 'lucide-react';
 import { containerVariants, itemVariants } from '../animations';
 import shahilsinghyadav from '../assets/shahilsinghyadav.jpg';
 
@@ -48,7 +49,7 @@ const Header = () => {
                 justifyContent: 'center',
                 alignItems: 'center',
                 textAlign: 'center',
-                padding: '0 20px',
+                padding: 'clamp(60px, 10vw, 80px) 20px 20px 20px',
                 position: 'relative',
                 overflow: 'hidden'
             }}
@@ -82,8 +83,8 @@ const Header = () => {
                     }}
                 >
                     <div style={{
-                        width: '150px',
-                        height: '150px',
+                        width: 'clamp(80px, 20vw, 150px)',
+                        height: 'clamp(80px, 20vw, 150px)',
                         borderRadius: '50%',
                         background: 'linear-gradient(135deg, rgba(0,150,255,0.3), rgba(100,200,255,0.2))',
                         border: '2px solid rgba(0,150,255,0.6)',
@@ -109,7 +110,7 @@ const Header = () => {
                 <motion.h1
                     variants={itemVariants}
                     style={{
-                        fontSize: '5rem',
+                        fontSize: 'clamp(2.5rem, 8vw, 5rem)',
                         fontWeight: 800,
                         color: 'var(--text-main)',
                         marginBottom: '0.5rem',
@@ -144,16 +145,17 @@ const Header = () => {
                     variants={itemVariants}
                     style={{
                         display: 'flex',
-                        gap: '2rem',
+                        gap: 'clamp(1rem, 3vw, 2rem)',
                         justifyContent: 'center',
                         flexWrap: 'wrap',
-                        marginBottom: '2rem'
+                        marginBottom: 'clamp(1rem, 2vw, 2rem)',
+                        fontSize: 'clamp(0.8rem, 2vw, 0.95rem)'
                     }}>
-                    <a href="mailto:yshahil0623@gmail.com" className="hover-link">yshahil0623@gmail.com</a>
+                    <a href="mailto:yshahil0623@gmail.com" className="hover-link" style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>yshahil0623@gmail.com <ArrowUpRight size={16} style={{ opacity: 0.6 }} /></a>
                     <span style={{ opacity: 0.3 }}>|</span>
-                    <a href="https://linkedin.com/in/shahilsinghyadav" target="_blank" rel="noreferrer" className="hover-link">LinkedIn</a>
+                    <a href="https://linkedin.com/in/shahilsinghyadav" target="_blank" rel="noreferrer" className="hover-link" style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>LinkedIn <ArrowUpRight size={16} style={{ opacity: 0.6 }} /></a>
                     <span style={{ opacity: 0.3 }}>|</span>
-                    <a href="https://github.com/shahilsinghyadav" target="_blank" rel="noreferrer" className="hover-link">GitHub</a>
+                    <a href="https://github.com/shahilsinghyadav" target="_blank" rel="noreferrer" className="hover-link" style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>GitHub <ArrowUpRight size={16} style={{ opacity: 0.6 }} /></a>
                 </motion.div>
 
             </motion.div>

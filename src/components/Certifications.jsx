@@ -16,7 +16,6 @@ const Certifications = () => {
                 ].map((cert, i) => (
                     <li key={i} style={{
                         padding: '1.5rem',
-                        borderLeft: '3px solid rgba(0,150,255,0.8)',
                         marginBottom: '1rem',
                         background: isDark ? 'rgba(20,20,25,0.8)' : 'rgba(255,255,255,0.8)',
                         fontSize: '1.05rem',

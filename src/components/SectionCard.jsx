@@ -11,7 +11,7 @@ const SectionCard = ({ title, index, children, id }) => {
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.6, delay: 0.1 }}
             style={{
-                padding: '100px 0 60px 0', // Top padding accounts for fixed navbar
+                padding: 'clamp(40px, 10vw, 100px) 0 60px 0',
                 minHeight: 'auto',
             }}
         >
@@ -23,7 +23,7 @@ const SectionCard = ({ title, index, children, id }) => {
                         whileInView="visible"
                         viewport={{ once: true }}
                         style={{
-                            fontSize: '2.5rem',
+                            fontSize: 'clamp(1.75rem, 6vw, 2.5rem)',
                             fontWeight: 700,
                             color: 'var(--text-main)',
                             display: 'inline-block',
@@ -47,7 +47,7 @@ const SectionCard = ({ title, index, children, id }) => {
                     </motion.h2>
                 </div>
 
-                <div className="glass-panel" style={{ padding: '40px 50px' }}>
+                <div className="glass-panel" style={{ padding: 'clamp(20px, 5vw, 50px)' }}>
                     {children}
                 </div>
             </div>

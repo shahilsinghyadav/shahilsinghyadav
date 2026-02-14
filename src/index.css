@@ -208,3 +208,295 @@ a {
     transform: scale(1);
   }
 }
+
+/* ===== MOBILE RESPONSIVENESS ===== */
+
+/* Mobile phones (up to 640px) */
+@media (max-width: 640px) {
+  :root {
+    --card-radius: 16px;
+  }
+
+  /* Typography */
+  h1 {
+    font-size: 2.5rem !important;
+  }
+
+  h2 {
+    font-size: 1.75rem !important;
+  }
+
+  h3 {
+    font-size: 1.25rem !important;
+  }
+
+  body {
+    font-size: 14px;
+  }
+
+  .container {
+    padding: 0 15px;
+  }
+
+  /* Header section */
+  section[id="home"] {
+    padding: 0 15px;
+    min-height: auto;
+  }
+
+  /* Navigation */
+  nav {
+    padding: 12px 15px !important;
+    flex-wrap: wrap;
+  }
+
+  /* Profile photo in Header */
+  [style*="width: 150px"] {
+    width: 100px !important;
+    height: 100px !important;
+  }
+
+  /* Section spacing */
+  section {
+    padding: 40px 15px !important;
+  }
+
+  /* Grid layouts to single column */
+  [style*="grid"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  [style*="display: grid"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Flex wrapping */
+  [style*="flex"] {
+    flex-direction: column;
+  }
+
+  /* Reduce gaps */
+  [style*="gap:"] {
+    gap: 1rem !important;
+  }
+
+  /* Contact links */
+  [style*="gap: '2rem'"] {
+    gap: 1rem !important;
+  }
+
+  /* Project cards grid */
+  div[style*="display: grid; grid-template-columns: repeat(3"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Experience timeline */
+  [style*="paddingBottom: '2rem'"] {
+    margin-bottom: 1.5rem !important;
+  }
+
+  /* Skills grid */
+  [style*="grid-template-columns: repeat("] {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  /* Certifications list */
+  ul {
+    padding-left: 0 !important;
+  }
+
+  li {
+    padding: 1rem !important;
+  }
+
+  /* Button sizing */
+  button {
+    padding: 10px 16px !important;
+    font-size: 0.9rem;
+  }
+
+  a {
+    font-size: 0.95rem;
+  }
+
+  /* Reduce animations on mobile for better performance */
+  * {
+    animation-duration: 0.2s !important;
+  }
+}
+
+/* Tablets (641px to 1024px) */
+@media (max-width: 1024px) and (min-width: 641px) {
+  h1 {
+    font-size: 3.5rem !important;
+  }
+
+  h2 {
+    font-size: 2rem !important;
+  }
+
+  .container {
+    padding: 0 30px;
+  }
+
+  /* Section padding */
+  section {
+    padding: 50px 30px !important;
+  }
+
+  /* Grid layouts */
+  div[style*="display: grid; grid-template-columns: repeat(3"] {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  div[style*="display: grid; grid-template-columns: repeat(4"] {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  /* Navbar adjustments */
+  nav {
+    padding: 15px 30px !important;
+  }
+
+  /* Reduce profile photo size */
+  [style*="width: 150px"] {
+    width: 120px !important;
+    height: 120px !important;
+  }
+
+  /* Contact links wrapping */
+  [style*="gap: '2rem'"] {
+    gap: 1.5rem !important;
+  }
+}
+
+/* Small phones (up to 480px) */
+@media (max-width: 480px) {
+  h1 {
+    font-size: 2rem !important;
+  }
+
+  h2 {
+    font-size: 1.5rem !important;
+  }
+
+  h3 {
+    font-size: 1.1rem !important;
+  }
+
+  body {
+    font-size: 13px;
+  }
+
+  .container {
+    padding: 0 12px;
+  }
+
+  section {
+    padding: 30px 12px !important;
+  }
+
+  /* Stack navigation items */
+  nav {
+    flex-direction: column;
+    gap: 0.5rem !important;
+    padding: 10px 12px !important;
+  }
+
+  /* Profile photo very small */
+  [style*="width: 150px"] {
+    width: 80px !important;
+    height: 80px !important;
+  }
+
+  /* Margins and padding */
+  [style*="marginBottom: '2rem'"] {
+    margin-bottom: 1rem !important;
+  }
+
+  [style*="marginBottom: '3rem'"] {
+    margin-bottom: 1.5rem !important;
+  }
+
+  [style*="padding: '1.5rem'"] {
+    padding: 1rem !important;
+  }
+
+  /* Hide underline separator on mobile */
+  [style*="opacity: 0.3"] {
+    display: none;
+  }
+
+  /* Text centering */
+  [style*="textAlign: 'center'"] {
+    text-align: center;
+  }
+
+  /* Reduce font sizes for links and text */
+  a {
+    font-size: 0.9rem;
+  }
+
+  /* Skills grid to single column */
+  div[style*="display: grid"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Navbar specific */
+  nav {
+    padding: 0.4rem 0.6rem !important;
+    gap: 0.3rem !important;
+  }
+
+  nav > div:first-child {
+    font-size: 0.95rem !important;
+  }
+
+  nav a {
+    padding: 0.3rem 0.5rem !important;
+    font-size: 0.7rem;
+    border-radius: 4px;
+  }
+
+  nav button {
+    width: 28px !important;
+    height: 28px !important;
+    padding: 0.3rem !important;
+  }
+}
+
+/* Navbar Desktop Navigation Visibility */
+@media (max-width: 640px) {
+  /* Hide desktop nav and resume on mobile */
+  .desktop-nav {
+    display: none !important;
+  }
+
+  .desktop-resume {
+    display: none !important;
+  }
+
+  /* Show hamburger on mobile */
+  .mobile-hamburger {
+    display: flex !important;
+  }
+}
+
+@media (min-width: 641px) {
+  /* Show desktop nav on larger screens */
+  .desktop-nav {
+    display: flex !important;
+    gap: 2rem;
+    align-items: center;
+  }
+
+  /* Show resume on desktop */
+  .desktop-resume {
+    display: flex !important;
+  }
+
+  /* Hide hamburger on desktop */
+  .mobile-hamburger {
+    display: none !important;
+  }
+}
