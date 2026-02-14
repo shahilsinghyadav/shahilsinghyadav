@@ -67,9 +67,44 @@ const Navbar = () => {
                 ))}
             </div>
 
-            {/* Theme Toggle Button */}
-            <button
-                onClick={toggleTheme}
+            <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
+                {/* Resume Download Button */}
+                <a
+                    href="https://drive.google.com/your-resume-link"
+                    target="_blank"
+                    rel="noreferrer"
+                    style={{
+                        padding: '0.6rem 1.5rem',
+                        background: 'linear-gradient(135deg, rgba(0,150,255,0.2), rgba(0,200,200,0.2))',
+                        border: '1.5px solid rgba(0,150,255,0.6)',
+                        borderRadius: '8px',
+                        color: 'rgba(0,150,255,0.9)',
+                        fontSize: '0.95rem',
+                        fontWeight: 600,
+                        cursor: 'pointer',
+                        textDecoration: 'none',
+                        transition: 'all 0.3s ease',
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '0.5rem'
+                    }}
+                    onMouseEnter={(e) => {
+                        e.target.style.background = 'linear-gradient(135deg, rgba(0,150,255,0.3), rgba(0,200,200,0.3))';
+                        e.target.style.transform = 'translateY(-2px)';
+                        e.target.style.boxShadow = '0 8px 20px rgba(0,150,255,0.2)';
+                    }}
+                    onMouseLeave={(e) => {
+                        e.target.style.background = 'linear-gradient(135deg, rgba(0,150,255,0.2), rgba(0,200,200,0.2))';
+                        e.target.style.transform = 'translateY(0)';
+                        e.target.style.boxShadow = 'none';
+                    }}
+                >
+                    📎 Resume
+                </a>
+
+                {/* Theme Toggle Button */}
+                <button
+                    onClick={toggleTheme}
                 style={{
                     background: 'rgba(255,255,255,0.1)',
                     border: '1px solid rgba(255,255,255,0.2)',
@@ -95,7 +130,8 @@ const Navbar = () => {
                 title={isDark ? 'Light Mode' : 'Dark Mode'}
             >
                 {isDark ? '☀️' : '🌙'}
-            </button>
+                </button>
+            </div>
         </nav>
     );
 };

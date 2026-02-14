@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { containerVariants, itemVariants } from '../animations';
+import shahilsinghyadav from '../assets/shahilsinghyadav.jpg';
 
 const Header = () => {
     const text = "Shahil Singh Yadav";
@@ -71,6 +72,39 @@ const Header = () => {
                 animate="visible"
                 variants={containerVariants}
             >
+                {/* Profile Photo */}
+                <motion.div
+                    variants={itemVariants}
+                    style={{
+                        marginBottom: '2rem',
+                        display: 'flex',
+                        justifyContent: 'center'
+                    }}
+                >
+                    <div style={{
+                        width: '150px',
+                        height: '150px',
+                        borderRadius: '50%',
+                        background: 'linear-gradient(135deg, rgba(0,150,255,0.3), rgba(100,200,255,0.2))',
+                        border: '2px solid rgba(0,150,255,0.6)',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        backdropFilter: 'blur(10px)',
+                        overflow: 'hidden'
+                    }}>
+                        <img
+                            src={shahilsinghyadav}
+                            alt="Shahil Singh Yadav"
+                            style={{
+                                width: '100%',
+                                height: '100%',
+                                objectFit: 'cover'
+                            }}
+                        />
+                    </div>
+                </motion.div>
+
                 {/* Name with Typewriter Effect */}
                 <motion.h1
                     variants={itemVariants}

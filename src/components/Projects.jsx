@@ -6,7 +6,7 @@ import { ThemeContext } from '../ThemeContext';
 import tradezImg from '../assets/tradez.png';
 import emotionImg from '../assets/emotion.jpg';
 
-const ProjectItem = ({ title, type, description, stack, image }) => {
+const ProjectItem = ({ title, type, description, stack, image, github, demo, metrics }) => {
     const { isDark } = useContext(ThemeContext);
     
     return (
@@ -28,16 +28,17 @@ const ProjectItem = ({ title, type, description, stack, image }) => {
         whileHover={{ y: -8, boxShadow: isDark ? '0 20px 40px rgba(0,150,255,0.2)' : '0 20px 40px rgba(0,150,255,0.15)' }}
         transition={{ duration: 0.3 }}
     >
-        {/* Placeholder for Project Image */}
+        {/* Project Image */}
         <div style={{
             height: '160px',
-            backgroundColor: 'rgba(0,0,0,0.1)',
+            backgroundColor: isDark ? 'rgba(0,100,200,0.1)' : 'rgba(0,150,255,0.05)',
             width: '100%',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
             color: 'rgba(0,0,0,0.4)',
-            fontSize: '0.9rem'
+            fontSize: '0.9rem',
+            background: image ? 'transparent' : isDark ? 'rgba(0,100,200,0.1)' : 'rgba(0,150,255,0.05)'
         }}>
             {image && (
                 <img
@@ -46,6 +47,7 @@ const ProjectItem = ({ title, type, description, stack, image }) => {
                     style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                 />
             )}
+            {!image && <span>📱 Project Preview</span>}
         </div>
 
         <div style={{ padding: '25px', display: 'flex', flexDirection: 'column', flex: 1 }}>
@@ -56,10 +58,91 @@ const ProjectItem = ({ title, type, description, stack, image }) => {
             <ul style={{ paddingLeft: '1.2rem', opacity: 0.8, marginBottom: 'auto', lineHeight: 1.5, fontSize: '0.95rem' }}>
                 {description.map((point, i) => <li key={i} style={{ marginBottom: '5px' }}>{point}</li>)}
             </ul>
-            <div style={{ marginTop: '1.5rem', paddingTop: '1rem', borderTop: '1px solid rgba(0,0,0,0.05)' }}>
-                <p style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', margin: 0 }}>
+
+            {/* Metrics */}
+            {metrics && (
+                <div style={{ marginTop: '1rem', paddingTop: '1rem', borderTop: isDark ? '1px solid rgba(255,255,255,0.1)' : '1px solid rgba(0,0,0,0.05)', display: 'flex', gap: '1.5rem', fontSize: '0.9rem' }}>
+                    {metrics.map((metric, i) => (
+                        <div key={i} style={{ color: 'var(--text-secondary)' }}>
+                            <strong style={{ fontSize: '1.2rem', color: 'rgba(0,150,255,0.8)' }}>{metric.value}</strong>
+                            <div style={{ fontSize: '0.8rem' }}>{metric.label}</div>
+                        </div>
+                    ))}
+                </div>
+            )}
+
+            <div style={{ marginTop: '1.5rem', paddingTop: '1rem', borderTop: isDark ? '1px solid rgba(255,255,255,0.1)' : '1px solid rgba(0,0,0,0.05)' }}>
+                <p style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', margin: '0 0 1rem 0' }}>
                     <strong style={{ color: 'var(--text-main)' }}>Tech Stack:</strong> {stack}
                 </p>
+                
+                {/* Project Links */}
+                <div style={{ display: 'flex', gap: '1rem', marginTop: '1rem' }}>
+                    {github && (
+                        <a
+                            href={github}
+                            target="_blank"
+                            rel="noreferrer"
+                            style={{
+                                display: 'inline-flex',
+                                alignItems: 'center',
+                                gap: '0.5rem',
+                                padding: '0.5rem 1rem',
+                                background: isDark ? 'rgba(0,150,255,0.2)' : 'rgba(0,150,255,0.1)',
+                                border: '1px solid rgba(0,150,255,0.5)',
+                                borderRadius: '8px',
+                                color: 'rgba(0,150,255,0.9)',
+                                fontSize: '0.9rem',
+                                fontWeight: 500,
+                                cursor: 'pointer',
+                                textDecoration: 'none',
+                                transition: 'all 0.3s',
+                            }}
+                            onMouseEnter={(e) => {
+                                e.target.style.background = isDark ? 'rgba(0,150,255,0.3)' : 'rgba(0,150,255,0.15)';
+                                e.target.style.transform = 'translateY(-2px)';
+                            }}
+                            onMouseLeave={(e) => {
+                                e.target.style.background = isDark ? 'rgba(0,150,255,0.2)' : 'rgba(0,150,255,0.1)';
+                                e.target.style.transform = 'translateY(0)';
+                            }}
+                        >
+                            🔗 GitHub
+                        </a>
+                    )}
+                    {demo && (
+                        <a
+                            href={demo}
+                            target="_blank"
+                            rel="noreferrer"
+                            style={{
+                                display: 'inline-flex',
+                                alignItems: 'center',
+                                gap: '0.5rem',
+                                padding: '0.5rem 1rem',
+                                background: 'linear-gradient(135deg, rgba(0,150,255,0.2), rgba(0,200,150,0.2))',
+                                border: '1px solid rgba(0,150,255,0.5)',
+                                borderRadius: '8px',
+                                color: 'rgba(0,150,255,0.9)',
+                                fontSize: '0.9rem',
+                                fontWeight: 500,
+                                cursor: 'pointer',
+                                textDecoration: 'none',
+                                transition: 'all 0.3s',
+                            }}
+                            onMouseEnter={(e) => {
+                                e.target.style.background = 'linear-gradient(135deg, rgba(0,150,255,0.3), rgba(0,200,150,0.3))';
+                                e.target.style.transform = 'translateY(-2px)';
+                            }}
+                            onMouseLeave={(e) => {
+                                e.target.style.background = 'linear-gradient(135deg, rgba(0,150,255,0.2), rgba(0,200,150,0.2))';
+                                e.target.style.transform = 'translateY(0)';
+                            }}
+                        >
+                            🚀 Live Demo
+                        </a>
+                    )}
+                </div>
             </div>
         </div>
     </motion.div>
@@ -100,6 +183,11 @@ const Projects = () => {
                     ]}
                     stack="Node.js, Express.js, Prisma ORM, React.js, SQL, Postman, JavaScript, UIUX, Figma"
                     image={tradezImg}
+                    github="https://github.com/shahilsinghyadav/tradez"
+                    metrics={[
+                        { value: "100%", label: "Test Coverage" },
+                        { value: "REST API", label: "Architecture" }
+                    ]}
                 />
 
                 <ProjectItem
@@ -110,6 +198,12 @@ const Projects = () => {
                         "Managed media stream lifecycle (local/remote), peer connection states, and ICE candidate exchange for NAT traversal."
                     ]}
                     stack="React (TypeScript), WebRTC, Socket.IO, Node.js, Express"
+                    github="https://github.com/shahilsinghyadav/nudge"
+                    demo="https://nudge-webrtc.vercel.app"
+                    metrics={[
+                        { value: "<50ms", label: "Latency" },
+                        { value: "P2P", label: "Connection" }
+                    ]}
                 />
 
                 <ProjectItem
@@ -121,6 +215,11 @@ const Projects = () => {
                     ]}
                     stack="Python, Numpy, Data Analysis, HTML, CSS, JS"
                     image={emotionImg}
+                    github="https://github.com/shahilsinghyadav/emotion-music-rec"
+                    metrics={[
+                        { value: "87%", label: "Accuracy" },
+                        { value: "ML Model", label: "Type" }
+                    ]}
                 />
             </motion.div>
         </SectionCard>

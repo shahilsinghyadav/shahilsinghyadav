@@ -70,6 +70,31 @@ body::before {
     linear-gradient(90deg, transparent 24%, rgba(0, 0, 0, 0.03) 25%, rgba(0, 0, 0, 0.03) 26%, transparent 27%, transparent 74%, rgba(0, 0, 0, 0.03) 75%, rgba(0, 0, 0, 0.03) 76%, transparent 77%, transparent);
 }
 
+/* Enhanced gradient backgrounds for sections */
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Gradient accent elements */
+.gradient-text {
+  background: linear-gradient(135deg, rgba(0,150,255,1), rgba(0,200,200,1));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Enhanced glow effects */
+.glow-accent {
+  box-shadow: 0 0 20px rgba(0,150,255,0.3), inset 0 0 20px rgba(0,150,255,0.1);
+}
+
+/* Smooth transitions */
+* {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
 h1,
 h2,
 h3,
