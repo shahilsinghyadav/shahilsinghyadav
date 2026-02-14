@@ -1,7 +1,9 @@
 import React from 'react';
 import SectionCard from './SectionCard';
+import tradezImg from '../assets/tradez.png';
+import emotionImg from '../assets/emotion.jpg';
 
-const ProjectItem = ({ title, type, description, stack }) => (
+const ProjectItem = ({ title, type, description, stack, image }) => (
     <div style={{
         marginBottom: '0', // Removed bottom margin as grid gap handles spacing
         background: 'rgba(255,255,255,0.4)',
@@ -25,7 +27,13 @@ const ProjectItem = ({ title, type, description, stack }) => (
             color: 'rgba(0,0,0,0.4)',
             fontSize: '0.9rem'
         }}>
-            Project Image
+            {image && (
+                <img
+                    src={image}
+                    alt={title}
+                    style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                />
+            )}
         </div>
 
         <div style={{ padding: '25px', display: 'flex', flexDirection: 'column', flex: 1 }}>
@@ -73,6 +81,7 @@ const Projects = () => {
                         "Using Prisma ORM with MySQL database. Employed JSON Web Tokens (JWT) for robust and secure session handling (cookies)."
                     ]}
                     stack="Node.js, Express.js, Prisma ORM, React.js, SQL, Postman, JavaScript, UIUX, Figma"
+                    image={tradezImg}
                 />
 
                 <ProjectItem
@@ -93,6 +102,7 @@ const Projects = () => {
                         "Designed and developed webpages, working on client and server side."
                     ]}
                     stack="Python, Numpy, Data Analysis, HTML, CSS, JS"
+                    image={emotionImg}
                 />
             </div>
         </SectionCard>
