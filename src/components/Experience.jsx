@@ -27,12 +27,24 @@ const Experience = () => {
                 period="01/2025 to Present / 07/2024 to 01/2025"
                 location="Thane, Maharashtra"
                 details={[
-                    "Part of Product Engineering team, worked on building and optimizing Node.js and SAP Fiori (UI5) applications for SAP GRC/IDM.",
-                    "Implemented AD Group management and Job Schedulers on BTP.",
-                    "Contributed to backend services, database schema design, API development, OAuth-based authentication, and integrations with third-party on-prem systems.",
-                    "Implemented Jenkins-based CI/CD pipelines for production.",
-                    "Developed Deloitte internal assets that reduced resource management effort by up to 80%, ensuring low latency on BTP, HANA-DB.",
-                    "Awarded as \"NextGen Innovator\" under Jarvis Club (2nd place)."
+                    <>
+                        Part of Product Engineering team, worked on building and optimizing <strong>Node.js</strong> and <strong>SAP Fiori (UI5)</strong> applications for <strong>SAP GRC/IDM</strong>.
+                    </>,
+                    <>
+                        Implemented <strong>AD Group management</strong> and <strong>Job Schedulers</strong> on <strong>BTP</strong>.
+                    </>,
+                    <>
+                        Contributed to <strong>backend services</strong>, <strong>database schema design</strong>, <strong>API development</strong>, <strong>OAuth-based authentication</strong>, and integrations with third-party on-prem systems.
+                    </>,
+                    <>
+                        Implemented <strong>Jenkins-based CI/CD pipelines</strong> for production.
+                    </>,
+                    <>
+                        Developed Deloitte internal assets that reduced resource management effort by up to <strong>80%</strong>, ensuring low latency on <strong>BTP</strong>, <strong>HANA-DB</strong>.
+                    </>,
+                    <>
+                        Awarded as <strong>"NextGen Innovator"</strong> under <strong>Jarvis Club</strong> (<strong>2nd place</strong>).
+                    </>
                 ]}
             />
 
@@ -42,9 +54,15 @@ const Experience = () => {
                 period="04/2023 to 07/2023"
                 location="Remote"
                 details={[
-                    "Worked from requirement gathering to creating Backend Architecture and APIs for logistics management/live tracking of rakes using Node.js.",
-                    "Implemented OTP based, OAuth Authentication utilizing AWS S3, EC2.",
-                    "Contributed as a UIUX designer."
+                    <>
+                        Worked from requirement gathering to creating <strong>Backend Architecture</strong> and <strong>APIs</strong> for logistics management/live tracking of rakes using <strong>Node.js</strong>.
+                    </>,
+                    <>
+                        Implemented <strong>OTP-based</strong>, <strong>OAuth Authentication</strong> utilizing <strong>AWS S3</strong>, <strong>EC2</strong>.
+                    </>,
+                    <>
+                        Contributed as a <strong>UI/UX designer</strong>.
+                    </>
                 ]}
             />
 
@@ -54,7 +72,9 @@ const Experience = () => {
                 period="02/2024 – 03/2024"
                 location="Remote"
                 details={[
-                    "Cleared GAIT with 365 score into the bronze category."
+                    <>
+                        Cleared <strong>GAIT</strong> with <strong>365</strong> score into the <strong>bronze</strong> category.
+                    </>
                 ]}
             />
         </SectionCard>
